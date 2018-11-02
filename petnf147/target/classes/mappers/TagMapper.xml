@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nf147.dao.TagMapper">
+  <resultMap id="BaseResultMap" type="nf147.entity.Tag">
+    <id column="tagId" jdbcType="INTEGER" property="tagId" />
+    <result column="tagName" jdbcType="VARCHAR" property="tagName" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tag
+    where tagId = #{tagId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="nf147.entity.Tag">
+    insert into tag (tagId, tagName)
+    values (#{tagId,jdbcType=INTEGER}, #{tagName,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="nf147.entity.Tag">
+    update tag
+    set tagName = #{tagName,jdbcType=VARCHAR}
+    where tagId = #{tagId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select tagId, tagName
+    from tag
+    where tagId = #{tagId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select tagId, tagName
+    from tag
+  </select>
+</mapper>

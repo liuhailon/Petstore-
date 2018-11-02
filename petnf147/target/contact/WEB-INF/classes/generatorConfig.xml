@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--jdbc 驱动包，等-->
+    <!--<classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" />-->
+
+    <context id="sss" targetRuntime="MyBatis3Simple">
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="org.mariadb.jdbc.Driver"
+                        connectionURL="jdbc:mariadb://localhost/petstore"
+                        userId="root"
+                        password="lhl12345">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="nf147.entity" targetProject="f:\petnf147\src\main\java">
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mappers"  targetProject="f:\petnf147\src\main\resources">
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="nf147.dao"  targetProject="f:\petnf147\src\main\java">
+        </javaClientGenerator>
+
+        <table tableName="pet">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="apiresponse">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="category">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="orders">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="tag">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="user">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+    </context>
+</generatorConfiguration>
